@@ -30,6 +30,10 @@ class MotorcycleODM {
   public async findById(id: string): Promise<IMotorcycle | null> {
     return this.model.findById(id);
   }
+
+  public async findIdAndUpdate(id: string, moto: IMotorcycle): Promise<IMotorcycle | null> {
+    return this.model.findByIdAndUpdate(id, moto);
+  }
 }
 
 export default MotorcycleODM;

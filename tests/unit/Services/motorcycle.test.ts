@@ -95,4 +95,24 @@ describe('Testa os endpoints Motorcycle', function () {
 
     sinon.restore();
   });
+
+  it('Deveria atualizar moto com sucesso', async function () {
+    const motoInput: IMotorcycle = {
+      model: motoName,
+      year: 2005,
+      color: 'Yellow',
+      status: true,
+      buyValue: 30.000,
+      category: 'Street',
+      engineCapacity: 600,
+    };
+
+    const updateMoto = sinon.stub(Model, 'findByIdAndUpdate');
+
+    const service = new MotorcycleService();
+    service.update('644a890689d4b9b285d7712e', motoInput);
+    expect(updateMoto.calledOnce).to.equal(true);
+
+    sinon.restore();
+  });
 });

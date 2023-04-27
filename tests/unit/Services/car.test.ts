@@ -94,4 +94,24 @@ describe('Teste os endpoints Car', function () {
 
     sinon.restore();
   });
+
+  it('Deveria atualizar carro com sucesso', async function () {
+    const carInput: ICar = {
+      model: 'Marea',
+      year: 2002,
+      color: 'Black',
+      status: true,
+      buyValue: 15.990,
+      doorsQty: 4,
+      seatsQty: 5,
+    };
+
+    const updateCar = sinon.stub(Model, 'findByIdAndUpdate');
+
+    const service = new CarService();
+    service.update('644a7ae189d4b9b285d77125', carInput);
+    expect(updateCar.calledOnce).to.equal(true);
+
+    sinon.restore();
+  });
 });
