@@ -18,7 +18,7 @@ class MotorcycleService {
 
   public async findAll() {
     const motoODM = new MotorcycleODM();
-    const findAll = await motoODM.findAllMoto();
+    const findAll = await motoODM.findAll();
     const findAllArr = findAll.map((moto) => this.createMotorcycleDomain(moto));
     return findAllArr;
   }
