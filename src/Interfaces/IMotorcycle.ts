@@ -1,10 +1,6 @@
-interface IMotorcycle {
-  id?: string,
-  model: string,
-  year: number,
-  color: string,
-  status?: boolean,
-  buyValue: number,
+import IVehicle from './IVehicle';
+
+interface IMotorcycle extends IVehicle {
   category: string,
   engineCapacity: number,
 }
